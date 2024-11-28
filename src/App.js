@@ -275,7 +275,10 @@ useEffect(
   useEffect(function(){
     async function getMoviesDetail(){
       setIsLoading(true);
-      const res  =  await fetch(`http://www.omdbapi.com/?apikey=${KEY}&i=${selectId}`);
+      const res  =  await fetch(`https://www.omdbapi.com/?apikey=${KEY}&i=${selectId}`);
+      if (!res.ok) {
+        throw new Error("Failed to fetch data");
+      }
       const data  = await res.json()
       setMovie(data);
       setIsLoading(false)
