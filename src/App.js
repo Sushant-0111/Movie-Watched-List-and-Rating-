@@ -37,7 +37,7 @@ function handleDeleteWatched(id){
         try {
           setIsLoading(true)
           seterror("")
-          const res  =  await fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=${query}`,{signal: controller.signal});
+          const res  =  await fetch(`https://www.omdbapi.com/?apikey=${KEY}&s=${query}`,{signal: controller.signal});
           if(!res.ok) throw new Error("Something went wrong"); 
           
           const data = await res.json();
